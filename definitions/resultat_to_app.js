@@ -41,11 +41,11 @@ indices.forEach(index => {
           DATE(a.Date) AS Date,
           b.Ouverture,
           b.Cloture,
-          a.y_proba_1 AS proba,
+          a.y_proba_${i} AS proba,
           CASE 
-            WHEN a.y_pred_1 = 'O' THEN 'Neutre'
-            WHEN a.y_pred_1 = 'H' THEN 'Vente'
-            WHEN a.y_pred_1 = 'L' THEN 'Achat'
+            WHEN a.y_pred_${i} = 'O' THEN 'Neutre'
+            WHEN a.y_pred_${i} = 'H' THEN 'Vente'
+            WHEN a.y_pred_${i} = 'L' THEN 'Achat'
           END AS signal,
           (4 - a.step) AS Delta
         FROM \`financial-data-storage.prevision_prod.results_agg_${index}_pred_${i}\` a
