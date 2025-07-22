@@ -1,7 +1,8 @@
 // definitions/generate_predictions.js
 
 // Définir les indices sur lesquels nous voulons itérer
-const indices = ["DJI","cac40","Nasdaq","Nasdaq100","SP500"];
+//const indices = ["DJI","cac40","Nasdaq","Nasdaq100","SP500"];
+const indices = ["DJI","cac40"];
 
 // Définir le nombre de paires de prédictions (y_proba_n, y_pred_n)
 const numPredictions = 10;
