@@ -47,6 +47,12 @@ indices.forEach(index => {
             WHEN a.y_pred_${i} = 'H' THEN 'Vente'
             WHEN a.y_pred_${i} = 'L' THEN 'Achat'
           END AS signal,
+          a.y_proba_hl_${i} AS proba_hl,
+          CASE 
+            WHEN a.y_pred_hl_${i} = 'O' THEN 'Neutre'
+            WHEN a.y_pred_hl_${i} = 'H' THEN 'Vente'
+            WHEN a.y_pred_hl_${i} = 'L' THEN 'Achat'
+          END AS signal_hl,
           (4 - a.step) AS Delta
         FROM \`financial-data-storage.prevision_prod.results_agg_${index}_pred_${i}\` a
         INNER JOIN \`financial-data-storage.clean_data_prod.${index}\` b 
