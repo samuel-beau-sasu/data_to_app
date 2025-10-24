@@ -39,6 +39,7 @@ indices.forEach(index => {
         -- Calculer les indicateurs en une seule passe
         SELECT 
           DATE(a.Date) AS Date,
+          DATE(a.Date_ref) AS Date_ref,
           b.Ouverture,
           b.Cloture,
           a.y_proba_${i} AS proba,
